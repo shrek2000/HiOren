@@ -20,21 +20,9 @@ android {
     }
 }
 
-
-String getJavaHome(String version)
-{
-//    def stdout = new ByteArrayOutputStream()
-//    exec {
-//        commandLine "/usr/lib/jvm/java-8-oracle", "-v", version
-//        standardOutput = stdout;
-//    }
-//    return stdout.toString().trim()
-    return "1.8"
-}
-
 retrolambda {
-    jdk System.getenv('JAVA8_HOME') ?: getJavaHome("1.8")
-    oldJdk System.getenv('JAVA7_HOME') ?: getJavaHome("1.7")
+    jdk System.getenv('JAVA8_HOME') ?: "/usr/lib/jvm/java-8-oracle"
+    oldJdk System.getenv('JAVA7_HOME') ?: "/usr/lib/jvm/java-7-oracle"
 }
 
 dependencies {
